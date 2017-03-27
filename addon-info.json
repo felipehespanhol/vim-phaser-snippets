@@ -1,0 +1,12 @@
+{
+  "name" : "vim-phaser-snippets",
+  "author" : "Felipe G. Hespanhol <https://github.com/felipehespanhol>",
+  "repository" : {"type": "git", "url": "git://github.com/felipehespanhol/vim-phaser-snippets.git"},
+  "dependencies" : {
+    "snipmate": {
+      "type": "git",
+      "url": "https://github.com/garbas/vim-snipmate"
+    }
+  },
+  "description" : "Vim snippets file for Phaser"
+}
