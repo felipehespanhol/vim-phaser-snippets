@@ -66,6 +66,9 @@ snippet addimg
 snippet addsprite
 	this.${1:char1} = game.add.sprite(${2:x}, ${3:y}, ${4:library_key});
 
+# Load Sprite
+snippet loadsprite
+	game.load.spritesheet('${1:ref_name}', '${2:pathto.png}', ${3:sprite_width}, ${4:sprite_height}, ${5:number_of_cells});
 # Force Orientation
 snippet forceorientation
 	game.scale.forceOrientation(${1:landscape}, ${2:portrait});
