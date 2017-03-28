@@ -1,11 +1,7 @@
-# Functions
-# Function
-snippet fun
-	function ${1:function_name}(${2}) {
-		${0}
-	}
-# Test
-snippet phasergame
+# Phaser Snippets
+
+# Desktop game variable
+snippet gamedesktop
 	var game;
 	window.onload = function()
 	{
@@ -14,3 +10,70 @@ snippet phasergame
 		game.state.add("StateMain",StateMain);
 		game.state.start("StateMain");
 	}
+# Desktop/Mobile game variable
+snippet gamedesktopmobile
+	var game;
+	var useLandscape=false;
+
+	window.onload = function () {
+		var isMobile=navigator.userAgent.indexOf("Mobile");
+
+		if (isMobile>-1) {
+			isMobile=true;
+		} else {
+			isMobile=false;
+		}
+
+		if (isMobile==false) {
+			//desktop laptop
+			if (useLandscape == true) {
+				game = new Phaser.Game(640, 480, Phaser.AUTO, "ph_game");
+			} else {
+				game = new Phaser.Game(480, 640, Phaser.AUTO, "ph_game");
+			}
+		} else {
+			//mobile device
+			game = new Phaser.Game(window.innerWidth, window.innerHeight, Phaser.AUTO, "ph_game");
+		}
+
+		game.state.add("StateMain",StateMain);
+		game.state.start("StateMain");
+	}
+
+# Blank State
+snippet blankstate
+	var StateMain= {
+		preload: function() {
+			// load images into library
+		},
+
+		create: function() {
+			// set up objects, variables
+			// sounds, text
+			// good guys, explosions
+		},
+
+		update: function() {
+			// constant running loop
+		}
+	}
+
+# Insert Image Into Library
+snippet addimg
+	game.load.image(${1:library_key}, ${2:path_to_image});
+
+# Add Sprite
+snippet addsprite
+	this.${1:char1} = game.add.sprite(${2:x}, ${3:y}, ${4:library_key});
+
+# Force Orientation
+snippet forceorientation
+	game.scale.forceOrientation(${1:landscape}, ${2:portrait});
+
+# Enter Incorrect Orientation
+snippet enterincorrectorientation
+	game.scale.enterIncorrectOrientation.add(${1:function}, ${2:scope});
+
+# Leave Incorrect Orientation
+snippet leaveincorrectorientation
+	game.scale.leaveIncorrectOrientation.add(${1:function}, ${2:scope});
