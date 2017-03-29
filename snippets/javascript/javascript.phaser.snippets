@@ -13,7 +13,8 @@ snippet gamedesktop
 # Desktop/Mobile game variable
 snippet gamedesktopmobile
 	var game;
-	var useLandscape=false;
+	var useLandscape = false;
+	var soundOn = true;
 
 	window.onload = function () {
 		var isMobile=navigator.userAgent.indexOf("Mobile");
@@ -27,9 +28,9 @@ snippet gamedesktopmobile
 		if (isMobile==false) {
 			//desktop laptop
 			if (useLandscape == true) {
-				game = new Phaser.Game(640, 480, Phaser.AUTO, "ph_game");
+				game = new Phaser.Game(${1:640}, ${2:480}, Phaser.AUTO, "ph_game");
 			} else {
-				game = new Phaser.Game(480, 640, Phaser.AUTO, "ph_game");
+				game = new Phaser.Game(${3:480}, ${4:640}, Phaser.AUTO, "ph_game");
 			}
 		} else {
 			//mobile device
@@ -68,15 +69,19 @@ snippet addimg
 
 # Load Image
 snippet loadimg
-	game.load.image("${1:image_name}", "${2:image_path}")
+	game.load.image("${1:image_name}", "${2:image_path}");
 
 # Add Sprite
 snippet addsprite
-	this.${1:char1} = game.add.sprite(${2:x}, ${3:y}, ${4:library_key});
+	this.${1:char1} = game.add.sprite(${2:x}, ${3:y}, "${4:library_key}");
 
 # Load Sprite
 snippet loadsprite
 	game.load.spritesheet('${1:ref_name}', '${2:pathto.png}', ${3:sprite_width}, ${4:sprite_height}, ${5:number_of_cells});
+
+# Add Tilesprite
+snippet addtilesprite
+	 this.${1:tileSprite} = game.add.tileSprite(${2:x}, ${3:y}, ${4:width}, ${5:height}, '${6:key}');
 
 # Enable Sprite
 snippet enablesprite
@@ -125,3 +130,15 @@ snippet loadaudio
 # Add Audio
 snippet addaudio
 	${1:myAudio} = game.add.audio("${2:key}");
+
+# Add Animation
+snippet addanim
+	${1:mysprite}.animations.add('${2:animation_name}', ${3:frame_array}, ${4:frames_sec}, ${5:loopBoolean});
+
+# Play Animation
+snippet playanim
+	${1:mysprite}.animations.play('${2:animation_name}');
+
+# Enable Physics
+snippet enablephysics
+	game.physics.enable(this.${1:sprite}, Phaser.Physics.${2:ARCADE});
