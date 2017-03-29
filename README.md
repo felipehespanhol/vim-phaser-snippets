@@ -3,6 +3,8 @@ vim-phaser-snippets
 
 This repository contains snippets files for Phaser in snipMate format.
 
+Based on http://williamclarkson.net/phaser-snippets/
+
 How to install
 -------------
 
