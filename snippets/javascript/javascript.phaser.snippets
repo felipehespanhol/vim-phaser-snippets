@@ -63,6 +63,10 @@ snippet blankstate
 snippet addstate
 	game.state.add("${1:StateMain}", ${2:StateMain});
 
+# Start State
+snippet startstate
+	game.state.start("${1:state_name}");
+
 # Add Image
 snippet addimg
 	game.add.image(${1:x}, ${2:y}, "${3:image_name}");
@@ -88,11 +92,11 @@ snippet enablesprite
 	${1:spriteName}.inputEnabled = true;
 
 # Add Sprite Input Up
-snippet addinputup
+snippet inputup
 	${1:sprite_name}.events.onInputUp.add(this.${2:click_handler}, ${3:scope});
 
 # Add Sprite Input Down
-snippet addinputdown
+snippet inputdown
 	${1:sprite_name}.events.onInputDown.add(this.${2:click_handler}, ${3:scope});
 
 # Force Orientation
@@ -109,7 +113,7 @@ snippet leaveincorrectorientation
 
 # Add Button
 snippet addbtn
-	game.add.button(${1:x}, ${2:y}, "${3:imageKey}", ${4:clickFunction}, ${5:this}, ${6:over_frame}, ${7:normal_frame}, ${8:down_frame});
+	var ${1:button_name} = game.add.button(${2:x}, ${3:y}, "${4:imageKey}", ${5:clickFunction}, ${6:this}, ${7:over_frame}, ${8:normal_frame}, ${9:down_frame});
 
 # Add Canvas click
 snippet canvasclick
@@ -142,3 +146,27 @@ snippet playanim
 # Enable Physics
 snippet enablephysics
 	game.physics.enable(this.${1:sprite}, Phaser.Physics.${2:ARCADE});
+
+# Active Pointer is Down
+snippet pointerdown
+	game.input.activePointer.isDown
+
+# Add Time event
+snippet addtime
+	game.time.events.add(Phaser.Timer.SECOND, ${1:function}, ${2:this});
+
+# Loop Time
+snippet looptime
+	game.time.events.loop(Phaser.Timer.SECOND, ${1:function}, ${2:this});
+
+# Collide
+snippet collide
+	game.physics.arcade.collide(this.${1:sprite1}, this.${2:sprite2}, ${3:null}, this.${4:action_function}, ${5:this});
+
+# Anchor
+snippet anchor
+	this.${1:object_name}.anchor.set(${2:x}, ${3:y});
+
+# Fancy Font
+snippet fancyfont
+	this.${1:titleText} = game.add.text(${2:x}, ${3:y}, "${4:text}", { font: "${5:size} ${6:fontName}", fill: "${7:color}", stroke: "${8:color}", strokeThickness: ${9:number}, align: "${10:string}" });
