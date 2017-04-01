@@ -163,6 +163,14 @@ snippet looptime
 snippet collide
 	game.physics.arcade.collide(this.${1:sprite1}, this.${2:sprite2}, ${3:null}, this.${4:action_function}, ${5:this});
 
+# Collide layer
+snippet collidelayer
+	game.physics.arcade.collide(this.${1:sprite}, this.${2:layer});
+
+# Collide world bounds
+snippet collideworldbounds
+	this.${1:sprite}.body.collideWorldBounds = ${2:true};
+
 # Anchor
 snippet anchor
 	this.${1:object_name}.anchor.set(${2:x}, ${3:y});
@@ -170,3 +178,94 @@ snippet anchor
 # Fancy Font
 snippet fancyfont
 	this.${1:titleText} = game.add.text(${2:x}, ${3:y}, "${4:text}", { font: "${5:size} ${6:fontName}", fill: "${7:color}", stroke: "${8:color}", strokeThickness: ${9:number}, align: "${10:string}" });
+
+# Load tilemap
+snippet loadtilemap
+	game.load.tilemap("${1:map}", "${2:map_image_path}", ${3:null}, Phaser.Tilemap.${4:TILED_JSON});
+
+# Add tilemap
+snippet addtilemap
+	this.${1:map} = game.add.tilemap("${2:map}");
+
+# Add tilesetimage
+snippet addtilesetimg
+	this.${1:tileset}.addTilesetImage("${2:tiles}");
+
+# Create layer
+snippet createlayer
+	this.${1:layer} = this.map.createLayer("${2:layer_title}");
+
+# Map set collision
+snippet mapsetcollision
+	this.${1:map}.setCollisionBetween(${2:first_tile}, ${3:last_tile});
+
+# Camera follow
+snippet camerafollow
+	game.camera.follow(this.${1:sprite});
+
+# Create Cursor Keys
+snippet createcursorkeys
+	${1:cursors} = game.input.keyboard.createCursorKeys();
+
+# Cursor left is down
+snippet leftisdown
+	${1:cursors}.left.isDown
+
+# Cursor up is down
+snippet upisdown
+	${1:cursors}.up.isDown
+
+# Cursor right is down
+snippet rightisdown
+	${1:cursors}.right.isDown
+
+# Cursor down is down
+snippet downisdown
+	${1:cursors}.down.isDown
+
+# Body on Floor
+snippet onfloor
+	this.${1:sprite}.body.onFloor()
+# Velocity X
+snippet velocityx
+	this.${1:sprite}.body.velocity.x
+
+# Velocity Y
+snippet velocityy
+	this.${1:sprite}.body.velocity.y
+
+# Set X Velocity
+snippet velocityx=
+	this.${1:sprite}.body.velocity.x = ${2:velocity};
+
+# Set Y Velocity
+snippet velocityy=
+	this.${1:sprite}.body.velocity.y = ${2:velocity};
+
+# Scale X
+snippet scalex
+	this.${1:sprite}.scale.x;
+
+# Scale X=
+snippet scalex=
+	this.${1:sprite}.scale.x = ${2:scale};
+
+# Scale Y
+snippet scaley
+	this.${1:sprite}.scale.y
+
+# Scale y=
+snippet scaley=
+	this.${1:sprite}.scale.y = ${2:scale};
+
+# Math absolute number
+snippet abs
+	Math.abs(${1:number});
+
+# Set tile index callback
+snippet tileindexcallback
+	this.${1:map}.setTileIndexCallback(${2:tile_number}, ${3:func}, ${4:this});
+
+# Remove tile
+snippet removetile
+	this.${1:map}.removeTile(${2:tile}.x, ${3:tile}.y, this.${4:layer});
