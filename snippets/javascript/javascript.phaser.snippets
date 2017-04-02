@@ -71,6 +71,10 @@ snippet startstate
 snippet addimg
 	game.add.image(${1:x}, ${2:y}, "${3:image_name}");
 
+# Add image and set var
+snippet addimg=
+	this.${1:img_name} = game.add.image(${2:x}, ${3:y}, "${4:img_name}");
+
 # Load Image
 snippet loadimg
 	game.load.image("${1:image_name}", "${2:image_path}");
@@ -157,7 +161,7 @@ snippet addtime
 
 # Loop Time
 snippet looptime
-	game.time.events.loop(Phaser.Timer.SECOND, ${1:function}, ${2:this});
+	game.time.events.loop(Phaser.Timer.${1:SECOND}, ${2:function}, ${3:this});
 
 # Collide
 snippet collide
@@ -202,6 +206,18 @@ snippet mapsetcollision
 # Camera follow
 snippet camerafollow
 	game.camera.follow(this.${1:sprite});
+
+# Fixed to camera
+snippet fixedcam
+	this.${1:object}.fixedToCamera = ${2:true};
+
+# Set Camera Offset
+snippet setcamoffset
+	this.${1:object}.cameraOffset.setTo(${2:x}, ${3:y});
+
+# Bring Object To Top
+snippet bringtotop
+	game.world.bringToTop(this.${1:object});
 
 # Create Cursor Keys
 snippet createcursorkeys
@@ -269,3 +285,7 @@ snippet tileindexcallback
 # Remove tile
 snippet removetile
 	this.${1:map}.removeTile(${2:tile}.x, ${3:tile}.y, this.${4:layer});
+
+# Add Group
+snippet addgrp
+	this.${1:group_name} = game.add.group();
